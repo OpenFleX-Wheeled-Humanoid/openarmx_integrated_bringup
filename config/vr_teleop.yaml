@@ -1,0 +1,173 @@
+vr_teleop_defaults:
+  ros__parameters:
+    max_linear_speed: 0.3
+    boost_linear_speed: 0.3
+    max_angular_speed: 0.3
+    joystick_deadzone: 0.15
+    linear_expo: 1.0
+    angular_expo: 1.0
+    estop_toggle_topic: ""
+    enable_waist_control: false
+    vr_chassis: false
+    enable_joystick_control: true
+    enable_button_lift: true
+    enable_head_teleop: true
+    robot_type: auto
+    waist_position_gain: 1.0
+    waist_lift_gain: 1.0
+    waist_angular_gain: 1.0
+    waist_max_linear_vel: 0.5
+    waist_lift_speed: 0.2
+    arm_teleop_config_file: ""
+    left_axis_matrix: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    right_axis_matrix: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    left_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    right_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    head_startup_home_enabled: true
+    head_startup_home_step_deg: 1.0
+    head_enable_soft_limits: true
+    head_yaw_soft_margin_deg: 10.0
+    head_pitch_soft_margin_deg: 5.0
+    head_soft_limit_blend_deg: 10.0
+    enable_scurve: true
+    acceleration_time: 0.5
+    smoothness: 0.3
+
+vr_teleop_recording_defaults:
+  ros__parameters:
+    max_linear_speed: 0.25
+    boost_linear_speed: 0.25
+    max_angular_speed: 0.3
+    joystick_deadzone: 0.15
+    linear_expo: 2.0
+    angular_expo: 2.5
+    enable_joystick_control: true
+    enable_button_lift: true
+    enable_head_teleop: true
+    head_startup_home_enabled: false
+    enable_waist_control: false
+    button_a_homing_enabled: true
+    reanchor_hold_cycles: 5
+
+pico_pose_bridge:
+  ros__parameters:
+    listen_port: 5100
+    pose_source_mode_topic: /vr/controller_pose_mode
+    button_a_topic: /pico_right_controller/button_a
+    button_b_topic: /pico_right_controller/button_b
+    button_x_topic: /pico_left_controller/button_x
+    button_y_topic: /pico_left_controller/button_y
+
+vr_teleop_chassis:
+  ros__parameters:
+    cmd_vel_topic: /cmd_vel
+    publish_rate: 20.0
+    max_linear_speed: 0.3
+    boost_linear_speed: 0.3
+    max_angular_speed: 0.3
+    joystick_deadzone: 0.15
+    linear_expo: 1.0
+    angular_expo: 1.0
+    estop_toggle_topic: ""
+    use_vr_chassis_speed_config: false
+    enable_scurve: true
+    acceleration_time: 0.5
+    smoothness: 0.3
+
+vr_lift_control:
+  ros__parameters:
+    button_x_topic: /pico_left_controller/button_x
+    button_y_topic: /pico_left_controller/button_y
+    jog_command_topic: /lift_manual_position_controller/jog_command
+    lift_speed: 0.05
+    vr_timeout: 0.5
+
+waist_chassis_control:
+  ros__parameters:
+    position_gain: 1.0
+    lift_gain: 1.0
+    angular_gain: 1.0
+    pid_kp: 1.5
+    pid_ki: 0.0
+    pid_kd: 0.1
+    ang_pid_kp: 2.0
+    ang_pid_ki: 0.0
+    ang_pid_kd: 0.1
+    lift_pid_kp: 2.0
+    lift_pid_ki: 0.0
+    lift_pid_kd: 0.05
+    max_linear_vel: 0.5
+    max_angular_vel: 1.5
+    lift_speed: 0.2
+    position_deadzone: 0.01
+    angular_deadzone: 0.02
+    lift_deadzone: 0.01
+    control_rate: 20.0
+    trigger_threshold: 0.5
+    waist_topic: /pico_tracker/waist/pose
+    left_trigger_topic: /pico_left_controller/trigger
+    right_trigger_topic: /pico_right_controller/trigger
+    trigger_topic: ""
+    cmd_vel_topic: /cmd_vel
+    position_topic: /lift_position_controller/commands
+    odom_topic: /odom
+
+openarmx_teleop_vr_node:
+  ros__parameters:
+    control_rate: 100.0
+    controller_pose_mode: gripper
+    robot_type: auto
+    arm_joint_count: 7
+    publish_separate_gripper_command: false
+    left_gripper_cmd_topic: ""
+    right_gripper_cmd_topic: ""
+    relative_stream_timeout_sec: 0.3
+    ik_enable_override_topic: /openarmx_teleop_vr/ik_enable_override
+    pose_source_mode_topic: /vr/controller_pose_mode
+    grip_threshold: 0.5
+    resync_threshold_deg: 5.0
+    ik_iterations: 3
+    sync_joint_states_each_cycle: true
+    left_pose_topic: /pico_left_controller/pose
+    right_pose_topic: /pico_right_controller/pose
+    left_grip_topic: /pico_left_controller/grip
+    right_grip_topic: /pico_right_controller/grip
+    left_trigger_topic: /pico_left_controller/trigger
+    right_trigger_topic: /pico_right_controller/trigger
+    left_cmd_topic: /left_forward_position_controller/commands
+    right_cmd_topic: /right_forward_position_controller/commands
+    left_axis_matrix: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    right_axis_matrix: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    left_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    right_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    gripper_left_axis_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    gripper_right_axis_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    gripper_left_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    gripper_right_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]
+    hand_left_axis_matrix: [1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+    hand_right_axis_matrix: [1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+    hand_left_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+    hand_right_orientation_matrix: [1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+
+openarmx_head_teleop_vr_pico_node:
+  ros__parameters:
+    control_rate: 50.0
+    button_b_topic: /pico_right_controller/button_b
+    head_pose_topic: /pico_head/pose
+    rate_topic: /pico_left_controller/rate
+    command_topic: /head_forward_position_controller/commands
+    slow_max_step_deg: 2.0
+    fast_max_step_deg: 5.0
+    yaw_scale: 1.0
+    pitch_scale: 1.0
+    invert_yaw: false
+    invert_pitch: false
+    enable_soft_limits: true
+    yaw_soft_margin_deg: 10.0
+    pitch_soft_margin_deg: 5.0
+    soft_limit_blend_deg: 10.0
+    startup_home_enabled: true
+    startup_home_step_deg: 1.0
+    startup_home_tolerance_deg: 1.0
+    head_pose_timeout_sec: 0.3
+    publish_visualization_tf: false

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>openarmx_integrated_bringup</name>
+  <version>1.0.0</version>
+  <description>Launch files and configurations for the integrated OpenArmX robot system</description>
+  <maintainer email="openarm@todo.todo">OpenArm Team</maintainer>
+  <license>TODO</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>forward_command_controller</exec_depend>
+  <exec_depend>joint_state_broadcaster</exec_depend>
+  <exec_depend>position_controllers</exec_depend>
+  <exec_depend>velocity_controllers</exec_depend>
+  <exec_depend>gripper_controllers</exec_depend>
+  <exec_depend>openarmx_integrated_description</exec_depend>
+  <exec_depend>swerve_bringup</exec_depend>
+  <exec_depend>swerve_base_panel</exec_depend>
+  <exec_depend>swerve_controller</exec_depend>
+  <exec_depend>swerve_description</exec_depend>
+  <exec_depend>swerve_hardware</exec_depend>
+  <exec_depend>openarmx</exec_depend>
+  <exec_depend>openarmx_description</exec_depend>
+  <exec_depend>openarmx_hand_description</exec_depend>
+  <exec_depend>openarmx_hand_hardware</exec_depend>
+  <exec_depend>openarmx_hand_bringup</exec_depend>
+  <exec_depend>hands_hardware</exec_depend>
+  <exec_depend>hands_description</exec_depend>
+  <exec_depend>openarmx_gravity_comp</exec_depend>
+  <exec_depend>openarmx_hardware</exec_depend>
+  <exec_depend>openarmx_teleop_vr</exec_depend>
+  <exec_depend>openflex_vr_bridge</exec_depend>
+  <exec_depend>lift_slide_description</exec_depend>
+  <exec_depend>lift_slide_driver</exec_depend>
+  <exec_depend>lift_slide_bringup</exec_depend>
+  <exec_depend>openarmx_joint_slider_panel</exec_depend>
+  <exec_depend>openarmx_ik_control_panel</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
